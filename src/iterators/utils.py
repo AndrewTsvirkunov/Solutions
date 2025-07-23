@@ -24,13 +24,8 @@ class Fibo:
         if self.index >= self.n:
             raise StopIteration  # возбуждаем исключение
 
-        if self.index == 0:
-            result = self.a
-        elif self.index == 1:
-            result = self.b
-        else:
-            result = self.a + self.b  # складываем два числа
-            self.a, self.b = self.b, result  # обновляем последовательность
+        result = self.a  # записываем в результат первое число из будущей суммы двух
+        self.a, self.b = self.b, self.a + self.b  # обновляем числа, чтобы в следующей итерации вернуть первое перед суммированием
 
         self.index += 1  # обновляем позицию
         return result

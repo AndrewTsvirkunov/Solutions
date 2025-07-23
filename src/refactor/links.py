@@ -10,17 +10,14 @@ BASE_URL = "https://spimex.com"
 # Валидная часть пути
 EXPECTED_PATH_PREFIX = "/upload/reports/oil_xls/oil_xls_"
 
-def parse_page_links(html: str, start_date: date, end_date: date, url: str) -> List[Tuple[str, date]]:
+def parse_page_links(html: str, start_date: date, end_date: date) -> List[Tuple[str, date]]:
     """
     Парсит ссылки на бюллетени с одной страницы.
     Возвращает список кортежей: (полная ссылка на файл, дата в имени файла)
-
     Parameters:
         html: HTML страницы;
         start_date: начальная дата фильтра;
-        end_date: конечная дата фильтра;
-        url: URL страницы (не используется, но может пригодиться для логирования).
-
+        end_date: конечная дата фильтра.
     Returns:
         Список (URL, дата), если дата входит в заданный диапазон.
     """
